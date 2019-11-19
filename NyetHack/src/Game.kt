@@ -5,7 +5,8 @@ fun main() {
     val isImmortal = false
 
     // aura
-    if (isBlessed && healthPoints > 50 || isImmortal) {
+    val auraVisible = isBlessed && healthPoints > 50 || isImmortal
+    if (auraVisible) {
         println("GREEN")
     } else {
         println("NONE")
