@@ -22,5 +22,5 @@ fun main() {
     }
 
     // player state
-    println(name + " " +healthStatus)
+    println("$name $healthStatus")
 }
