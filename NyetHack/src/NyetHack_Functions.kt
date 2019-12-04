@@ -1,3 +1,5 @@
+import kotlin.random.Random
+
 fun main() {
     val name = "Madrigal"
     val healthPoints = 89
@@ -25,11 +27,8 @@ private fun printPlayerStatus(
     println("$name $healthStatus")
 }
 
-private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
-    val auraVisible = isBlessed && healthPoints > 50 || isImmortal
-    val auraColor = if (auraVisible) "GREEN" else "NONE"
-    return auraColor
-}
+private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String =
+    if (isBlessed && healthPoints > 50 || isImmortal) "GREEN" else "NONE"
 
 private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean): String {
     return when (healthPoints) {
@@ -45,5 +44,16 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean): String {
     }
 }
 
-private fun castFireball(numFireballs: Int = 2) =
+private fun castFireball(numFireballs: Int = 2) {
+    val stupefyLevel = Random.nextInt(1, 50)
     println("A glass of Fireball springs into existence. (x$numFireballs)")
+    println("Stupefy level: $stupefyLevel")
+    val stupefyStatus = when (stupefyLevel) {
+        in 1..10 -> "Tipsy"
+        in 11..20 -> "Sloshed"
+        in 21..30 -> "Soused"
+        in 31..40 -> "Stewed"
+        else -> "t0aSt3d"
+    }
+    println("Stupefy status: $stupefyStatus")
+}
