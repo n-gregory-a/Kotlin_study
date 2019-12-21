@@ -1,5 +1,3 @@
-import java.lang.IllegalStateException
-
 fun main() {
     var swordJuggling: Int? = null
     val isJugglingProficient = (1..3).shuffled().last() == 3
@@ -8,7 +6,7 @@ fun main() {
     }
 
     proficiencyCheck(swordJuggling)
-    swordJuggling = swordJuggling!!.plus(1);
+    swordJuggling = swordJuggling!!.plus(1)
 
     println("You juggle $swordJuggling swords!")
 }
@@ -17,5 +15,5 @@ fun proficiencyCheck(swordsJuggling: Int?) {
     swordsJuggling ?: throw UnskilledSwordJugglingException()
 }
 
-class UnskilledSwordJugglingException() :
+class UnskilledSwordJugglingException :
         IllegalMonitorStateException ("Player cannot juggle swords")
