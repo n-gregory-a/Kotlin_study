@@ -5,14 +5,19 @@ fun main() {
         swordJuggling = 2
     }
 
-    proficiencyCheck(swordJuggling)
-    swordJuggling = swordJuggling!!.plus(1)
+    try {
+        proficiencyCheck(swordJuggling)
+        swordJuggling = swordJuggling!!.plus(1)
+    } catch (e: Exception) {
+        println(e)
+    }
 
     println("You juggle $swordJuggling swords!")
 }
 
 fun proficiencyCheck(swordsJuggling: Int?) {
-    swordsJuggling ?: throw UnskilledSwordJugglingException()
+//    swordsJuggling ?: throw UnskilledSwordJugglingException()
+    checkNotNull(swordsJuggling, { "Player cannot juggle swords" })
 }
 
 class UnskilledSwordJugglingException :
