@@ -8,7 +8,7 @@ fun main() {
 }
 
 private fun toDragonSpeak(phrase: String) =
-        phrase.replace(Regex("[aeiou]")) {
+        phrase.toLowerCase().replace(Regex("[aeiou]")) {
             when (it.value) {
                 "a" -> "4"
                 "e" -> "3"
