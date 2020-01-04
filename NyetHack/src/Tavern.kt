@@ -1,10 +1,21 @@
 const val TAVERN_NAME = "Taernyl's Folly"
 
+var playerGold = 10
+var playerSilver = 10
+
 fun main() {
 
-//    placeOrder("shandy,Dragon's Breath,5.91")
-    placeOrder("elixir,Shirley's Temple,4.12")
+    placeOrder("shandy,Dragon's Breath,5.91")
+//    placeOrder("elixir,Shirley's Temple,4.12")
 
+}
+
+fun performPurchase() {
+    displayBalance()
+}
+
+fun displayBalance() {
+    println("Player's purse balance: Gold: $playerGold , Silver: $playerSilver")
 }
 
 private fun toDragonSpeak(phrase: String) =
@@ -27,6 +38,8 @@ fun placeOrder(menuData: String) {
     val (type, name, price) = menuData.split(',')
     val message = "Madrigal buys a $name ($type) for $price."
     println(message)
+
+    performPurchase()
 
     val phrase = if (name == "Dragon's Breath") {
         "Mardigal exclaims: ${toDragonSpeak("Ah, delicious $name")}"
