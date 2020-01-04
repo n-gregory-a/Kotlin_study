@@ -10,8 +10,9 @@ fun main() {
 
 }
 
-fun performPurchase() {
+fun performPurchase(price: Double) {
     displayBalance()
+    println("Purchasing item for $price")
 }
 
 fun displayBalance() {
@@ -39,7 +40,7 @@ fun placeOrder(menuData: String) {
     val message = "Madrigal buys a $name ($type) for $price."
     println(message)
 
-    performPurchase()
+    performPurchase(price.toDouble())
 
     val phrase = if (name == "Dragon's Breath") {
         "Mardigal exclaims: ${toDragonSpeak("Ah, delicious $name")}"
